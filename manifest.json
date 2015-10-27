@@ -1,0 +1,6 @@
+{
+	  "id"        : "preside-ext-tika"
+	, "title"     : "Apache Tika service for extracting document metadata from pdfs, word docs, etc."
+	, "author"    : "Pixl8 Interactive"
+	, "version"   : "1.0.0"
+}
