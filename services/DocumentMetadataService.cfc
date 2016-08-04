@@ -4,7 +4,11 @@
 component displayName="Apache Tika Wrapper" extends="preside.system.services.assetManager.DocumentMetadataService" {
 
 // CONSTRUCTOR
-	public any function init() {
+	/**
+	 * @xmpMetaReader.inject xmpMetaReader
+	 *
+	 */
+	public any function init( required any xmpMetaReader ) {
 		super.init( argumentCollection=arguments );
 
 		_setTikaJarPath( GetDirectoryFromPath( GetCurrentTemplatePath( ) ) & "tika-app-1.2.jar" );
