@@ -2,6 +2,7 @@ component extends="coldbox.system.Interceptor" {
 
 	property name="adhocTaskmanagerService"   inject="delayedInjector:adhocTaskmanagerService";
 	property name="tikaTextExtractionService" inject="delayedInjector:tikaTextExtractionService";
+	property name="systemConfigurationService" inject="delayedInjector:systemConfigurationService";
 
 	public void function configure() {}
 
@@ -30,7 +31,7 @@ component extends="coldbox.system.Interceptor" {
 
 // helpers
 	private void function _processAsset( recordId, objectName ){
-		if ( Len( Trim( arguments.recordId ) ) && tikaTextExtractionService.fileTypeIsSupported( argumentCollection=arguments ) ) {
+		if ( Len( Trim( arguments.recordId ) ) && _readMetaEnabled() && tikaTextExtractionService.fileTypeIsSupported( argumentCollection=arguments ) ) {
 			adhocTaskmanagerService.createTask(
 				  event             = "tika.processAsset"
 				, args              = { recordId=arguments.recordId, objectName=arguments.objectName }
@@ -39,4 +40,12 @@ component extends="coldbox.system.Interceptor" {
 			);
 		}
 	}
+
+	private boolean function _readMetaEnabled() {
+		var setting = systemConfigurationService.getSetting( "asset-manager", "retrieve_metadata" );
+
+		return IsBoolean( setting ) && setting;
+	}
+
+
 }
