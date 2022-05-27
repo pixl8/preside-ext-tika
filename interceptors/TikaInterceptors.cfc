@@ -41,6 +41,12 @@ component extends="coldbox.system.Interceptor" {
 		}
 	}
 
+	/**
+	 * Perhaps this should be revisited. This setting is about metadata rather than text.
+	 * We could have our own system config to enable tika extraction and perhaps to choose
+	 * the filetypes we want to support it for...
+	 *
+	 */
 	private boolean function _readMetaEnabled() {
 		var setting = systemConfigurationService.getSetting( "asset-manager", "retrieve_metadata" );
 
