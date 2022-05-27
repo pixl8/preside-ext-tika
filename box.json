@@ -3,7 +3,7 @@
     "type":"preside-extensions",
     "version":"$VERSION_NUMBER",
     "location":"$DOWNLOAD_URL",
-    "private":true,
+    "private":false,
     "author":"Pixl8 Interactive",
     "directory":"application/extensions",
     "repository":{
