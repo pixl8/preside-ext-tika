@@ -1,7 +1,8 @@
 {
     "name":"PresideCMS Extension: Apache Tika",
     "type":"preside-extensions",
-    "version":"VERSION_NUMBER",
+    "version":"$VERSION_NUMBER",
+    "location":"$DOWNLOAD_URL",
     "private":true,
     "author":"Pixl8 Interactive",
     "directory":"application/extensions",
